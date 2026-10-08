@@ -1,0 +1,26 @@
+services:
+  web:
+    image: caucasus-demo:${RELEASE_ID:?RELEASE_ID is required}
+    container_name: caucasus-demo-test
+    build:
+      context: .
+      args:
+        TARGET_SHA: ${TARGET_SHA:?TARGET_SHA is required}
+        NGINX_IMAGE: ${NGINX_IMAGE:-nginx:stable-alpine}
+    ports:
+      - "127.0.0.1:${CAUCASUS_PORT:-5188}:8080"
+    restart: unless-stopped
+    read_only: true
+    tmpfs:
+      - /tmp:size=32m,mode=1777
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 128m
+    cpus: 0.50
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"

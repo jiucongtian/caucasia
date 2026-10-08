@@ -65,3 +65,15 @@ srs/               需求与设计规范
 ```
 
 本机预览服务只开放页面和静态资源，不开放需求、材料及 Git 文件。
+
+## Docker 部署
+
+使用独立 Nginx 容器，默认映射至 `127.0.0.1:5188`，不会启动 Node.js、数据库或队列服务。
+
+```sh
+TARGET_SHA=$(git rev-parse HEAD) RELEASE_ID=$(git rev-parse --short=12 HEAD) docker compose -p caucasus-demo up -d --build --wait
+```
+
+容器使用非 root 用户、只读文件系统和独立临时目录。宿主机可在测试站 HTTPS 配置中引入 `deploy/host-nginx-snippet.conf`，通过 `/caucasus/` 访问。页面资源使用相对路径，兼容根路径和该子路径。
+
+`/release.txt` 返回构建提交 SHA，`/healthz` 为容器健康检查。Docker 镜像只包含页面、代码和配件资源，不包含合作材料、Git 元数据或本机采购记录。
