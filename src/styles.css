@@ -23,3 +23,30 @@
 /* Reading hierarchy: keep task-critical information legible at normal zoom. */
 @media(min-width:761px){.nav-item{font-size:13px}.breadcrumb,.cart-top,.profile strong{font-size:12px}.profile small{font-size:10px}.page-intro p{font-size:13px}.category-tabs button{font-size:12px}.search-box input{font-size:13px}.vehicle-row select{font-size:11px}.product-name{font-size:15px}.product-fit,.product-oe span{font-size:11px}.product-topline .badge{font-size:10px}.product-brand{font-size:9px}.stock-line{font-size:10px}.product-purchase small{font-size:10px}.product-purchase strong{font-size:22px}.product-purchase strong>span{font-size:10px}.add-btn{width:36px;height:36px}.summary-row,.cart-line-info>strong,.order-products strong{font-size:13px}.cart-line-info>small{font-size:11px}.panel-heading>span{font-size:11px}.form-grid label,.address-form label{font-size:12px}.form-grid input,.address-form input{font-size:13px}.timeline strong{font-size:11px}.timeline small{font-size:9px}}
 @media(max-width:390px){.hero-copy h2{font-size:23px;white-space:nowrap}.catalog-hero{grid-template-columns:1.08fr .92fr}.hero-copy p{font-size:9px}.product-topline .badge{font-size:8px}.product-brand{font-size:7px}.product-image img{padding:5px 7px}}
+
+/* Language controls and layouts accommodate Georgian and Cyrillic text. */
+body{font-family:Inter,"Noto Sans Georgian","Noto Sans","Segoe UI",Arial,"PingFang SC","Microsoft YaHei",sans-serif}
+.language-control{display:inline-flex;align-items:center;gap:5px;flex-shrink:0;color:var(--muted,#627570)}
+.language-control select{max-width:140px;min-width:95px;height:36px;padding:6px 22px 6px 7px;font:inherit;font-size:13px;border:1px solid var(--line,#dfe5e1);border-radius:7px;background-color:#fff;color:#193342;cursor:pointer}
+.language-control select:focus-visible{outline:2px solid #e97845;outline-offset:3px}
+.header-actions{flex-wrap:wrap;justify-content:flex-end}
+.topbar{height:auto;min-height:80px;gap:16px;padding-top:14px;padding-bottom:14px}
+.modal-language{position:absolute;top:12px;right:56px;z-index:3}.modal-language select{height:30px;font-size:12px}
+.modal:not(.drawer){padding-top:66px}.drawer-header{padding-top:60px}
+html:not([lang="zh-CN"]) .hero-copy h2{font-size:clamp(28px,3vw,42px);line-height:1.18;max-width:400px}
+html:not([lang="zh-CN"]) .hero-copy p{max-width:340px;line-height:1.6}
+html[lang="ka"] .eyebrow,html[lang="ka"] .hero-kicker,html[lang="ka"] .nav-label{letter-spacing:.02em}
+html[lang="ka"]{--font-body:"Noto Sans Georgian","Noto Sans","Segoe UI",Arial,sans-serif}
+.nav-item span{min-width:0;white-space:normal;overflow-wrap:anywhere}.nav-item{min-height:46px;height:auto;line-height:1.45}
+.product-name{height:auto;min-height:44px;line-height:1.45;overflow-wrap:anywhere}
+.product-purchase small{white-space:normal}.hero-side{min-width:0}.hero-side strong{overflow-wrap:anywhere}
+.catalog-toolbar,.catalog-meta,.order-tabs,.panel-heading{flex-wrap:wrap;gap:10px}
+.category-tabs button,.segmented button{white-space:normal;line-height:1.4}
+.summary-total strong,.order-amount strong,.detail-price strong{font-variant-numeric:tabular-nums;white-space:nowrap}
+.timeline strong,.delivery-option strong,.btn{overflow-wrap:anywhere}.btn{height:auto;min-height:42px;line-height:1.4;text-align:center;white-space:normal}
+.timeline{overflow-x:auto}.timeline>div{min-width:100px}.map-sub{font-size:10px}
+html:not([lang="zh-CN"]) .map-point text{font-size:12px}
+html:not([lang="zh-CN"]) .map-point .map-sub{font-size:10px}
+@media(max-width:1100px){.topbar .profile small{display:none}.topbar .profile strong{max-width:140px}.topbar{align-items:flex-start}.catalog-hero{min-height:280px}.hero-side{max-width:220px}}
+@media(max-width:700px){.header-actions{gap:8px}.language-control select{min-width:86px;max-width:110px}.topbar .language-control .icon{display:none}.breadcrumb{flex-wrap:wrap}.topbar{padding:12px 16px}.hero-copy h2{max-width:280px}.hero-art{pointer-events:none}.hero-side{max-width:none}.modal-language .icon{display:none}.panel-heading span{white-space:normal}.order-overview>div strong{font-size:22px}.delivery-options{grid-template-columns:1fr}.account-card h2{overflow-wrap:anywhere}}
+.nav-item .new-tag,.nav-count{flex-shrink:0;white-space:nowrap;min-width:24px;overflow-wrap:normal}

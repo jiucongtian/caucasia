@@ -26,7 +26,7 @@ export function validateCart(cart) {
     const p = product(line.id);
     if (!p || ids.has(line.id) || !Number.isInteger(line.qty) || line.qty < 1 || line.qty > 999) throw new Error('商品数量需为 1–999 的整数');
     ids.add(line.id);
-    if (p.type === 'stock' && line.qty > p.stock) throw new Error(`${p.name} 最多可采购 ${p.stock} 件`);
+    if (p.type === 'stock' && line.qty > p.stock) throw Object.assign(new Error(`${p.name} 最多可采购 ${p.stock} 件`), { code: 'STOCK_LIMIT', partName: p.name, limit: p.stock });
   }
 }
 export function createOrder(cart, role, delivery, address, now = new Date()) {
