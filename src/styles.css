@@ -50,3 +50,14 @@ html:not([lang="zh-CN"]) .map-point .map-sub{font-size:10px}
 @media(max-width:1100px){.topbar .profile small{display:none}.topbar .profile strong{max-width:140px}.topbar{align-items:flex-start}.catalog-hero{min-height:280px}.hero-side{max-width:220px}}
 @media(max-width:700px){.header-actions{gap:8px}.language-control select{min-width:86px;max-width:110px}.topbar .language-control .icon{display:none}.breadcrumb{flex-wrap:wrap}.topbar{padding:12px 16px}.hero-copy h2{max-width:280px}.hero-art{pointer-events:none}.hero-side{max-width:none}.modal-language .icon{display:none}.panel-heading span{white-space:normal}.order-overview>div strong{font-size:22px}.delivery-options{grid-template-columns:1fr}.account-card h2{overflow-wrap:anywhere}}
 .nav-item .new-tag,.nav-count{flex-shrink:0;white-space:nowrap;min-width:24px;overflow-wrap:normal}
+/* Long localised hero copy must wrap instead of being clipped by the artwork. */
+.hero-copy{min-width:0}
+.hero-copy h2{white-space:normal;overflow-wrap:break-word;max-width:100%}
+.hero-copy p{white-space:normal;max-width:100%}
+@media(max-width:700px){
+  .catalog-hero{grid-template-columns:minmax(0,1fr);min-height:0}
+  .catalog-hero .hero-art{display:none}
+  .hero-copy{padding:26px 22px}
+  .hero-copy h2,html:not([lang="zh-CN"]) .hero-copy h2{font-size:28px;line-height:1.35;max-width:100%;white-space:normal;overflow-wrap:anywhere}
+  .hero-copy p,html:not([lang="zh-CN"]) .hero-copy p{max-width:100%;font-size:12px;line-height:1.7}
+}
