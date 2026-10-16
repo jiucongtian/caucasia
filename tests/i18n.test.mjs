@@ -4,6 +4,7 @@ import { readFile } from 'node:fs/promises';
 import { messages } from '../src/locales/messages.js';
 import { LANGUAGES, setLanguage, getLanguage, tr, translateSource, formatNumber, formatDate, formatDateTime, money, localizeError, productSearchNames } from '../src/i18n.js';
 import { product, validateCart, createOrder, cartTotal } from '../src/domain.js';
+import { localizePartName, localizeCategory, localizeBrand, localizeModel } from '../src/catalog-i18n.js';
 const placeholders = value => [...value.matchAll(/\{(\w+)\}/g)].map(match => match[1]).sort();
 test('四语配置完整、键唯一、插值一致，译文不夹带HTML', () => {
   assert.equal(new Set(messages.map(row => row.id)).size, messages.length);
@@ -44,25 +45,31 @@ test('本地数字和日期格式保持USD与第比利斯时区，无汇率换�
   }
 });
 test('切换语言不改变成交价、库存规则及既有订单数据', () => {
-  const cart = [{ id: 'brake', qty: 2 }];
+  const cart = [{ id: 'order-001', qty: 2 }];
   const order = createOrder(cart, 'dealer', 'pickup', { contact: 'Demo', phone: '123', address: 'Warehouse' });
   const before = JSON.stringify(order);
   for (const language of Object.keys(LANGUAGES)) {
     setLanguage(language);
-    assert.equal(cartTotal(cart, 'dealer'), 130);
+    assert.equal(cartTotal(cart, 'dealer'), 23.4);
     assert.equal(JSON.stringify(order), before);
-    try { validateCart([{ id: 'brake', qty: 129 }]); assert.fail('Expected stock limit'); }
+    try { validateCart([{ id: 'order-001', qty: 121 }]); assert.fail('Expected stock limit'); }
     catch (error) {
       assert.equal(error.code, 'STOCK_LIMIT');
-      assert.ok(localizeError(error).includes(translateSource(product('brake').name)));
+      assert.ok(localizeError(error).includes(localizePartName(product('order-001').name)));
       if (language !== 'zh') assert.ok(!/\p{Script=Han}/u.test(localizeError(error)));
     }
   }
 });
-test('四语商品名都可搜索，品牌和OE标识不作为译文改变', () => {
-  assert.equal(Object.keys(productSearchNames).length, 8);
-  for (const names of Object.values(productSearchNames)) assert.deepEqual(Object.keys(names), Object.keys(LANGUAGES));
-  assert.equal(product('brake').oe, '04465-33480');
+test('新目录名称、分类和品牌随四语切换，原单编号保持不变', () => {
+  for (const language of Object.keys(LANGUAGES)) {
+    setLanguage(language);
+    assert.ok(localizePartName('前刹车片'));
+    assert.ok(localizeCategory('制动系统'));
+    assert.ok(localizeBrand('比亚迪'));
+    assert.ok(localizeModel('秦PLUS'));
+    if (language !== 'zh') assert.ok(!/\p{Script=Han}/u.test(localizePartName('前刹车片') + localizeCategory('制动系统') + localizeBrand('比亚迪') + localizeModel('秦PLUS')));
+  }
+  assert.equal(product('order-001').sourceCode, '472ZQA-1017100');
 });
 test('不支持格鲁吉亚locale的浏览器也不会退回系统中文月份', () => {
   setLanguage('ka');

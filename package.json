@@ -7,7 +7,7 @@
     "dev": "node server.mjs",
     "start": "node server.mjs",
     "test": "node --test tests/*.test.mjs",
-    "check": "node --check src/app.js && node --check src/domain.js && node --check src/i18n.js && node --check src/locales/messages.js && node --check server.mjs",
+    "check": "node --check src/app.js && node --check src/domain.js && node --check src/catalog-i18n.js && node --check src/catalog-media.js && node --check src/order-catalog.js && node --check src/i18n.js && node --check src/locales/messages.js && node --check server.mjs",
     "locales:export": "node scripts/export-locales.mjs",
     "locales:import": "node scripts/import-locales.mjs"
   },

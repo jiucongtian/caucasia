@@ -31,8 +31,6 @@ body{font-family:Inter,"Noto Sans Georgian","Noto Sans","Segoe UI",Arial,"PingFa
 .language-control select:focus-visible{outline:2px solid #e97845;outline-offset:3px}
 .header-actions{flex-wrap:wrap;justify-content:flex-end}
 .topbar{height:auto;min-height:80px;gap:16px;padding-top:14px;padding-bottom:14px}
-.modal-language{position:absolute;top:12px;right:56px;z-index:3}.modal-language select{height:30px;font-size:12px}
-.modal:not(.drawer){padding-top:66px}.drawer-header{padding-top:60px}
 html:not([lang="zh-CN"]) .hero-copy h2{font-size:clamp(28px,3vw,42px);line-height:1.18;max-width:400px}
 html:not([lang="zh-CN"]) .hero-copy p{max-width:340px;line-height:1.6}
 html[lang="ka"] .eyebrow,html[lang="ka"] .hero-kicker,html[lang="ka"] .nav-label{letter-spacing:.02em}
@@ -48,7 +46,7 @@ html[lang="ka"]{--font-body:"Noto Sans Georgian","Noto Sans","Segoe UI",Arial,sa
 html:not([lang="zh-CN"]) .map-point text{font-size:12px}
 html:not([lang="zh-CN"]) .map-point .map-sub{font-size:10px}
 @media(max-width:1100px){.topbar .profile small{display:none}.topbar .profile strong{max-width:140px}.topbar{align-items:flex-start}.catalog-hero{min-height:280px}.hero-side{max-width:220px}}
-@media(max-width:700px){.header-actions{gap:8px}.language-control select{min-width:86px;max-width:110px}.topbar .language-control .icon{display:none}.breadcrumb{flex-wrap:wrap}.topbar{padding:12px 16px}.hero-copy h2{max-width:280px}.hero-art{pointer-events:none}.hero-side{max-width:none}.modal-language .icon{display:none}.panel-heading span{white-space:normal}.order-overview>div strong{font-size:22px}.delivery-options{grid-template-columns:1fr}.account-card h2{overflow-wrap:anywhere}}
+@media(max-width:700px){.header-actions{gap:8px}.language-control select{min-width:86px;max-width:110px}.topbar .language-control .icon{display:none}.breadcrumb{flex-wrap:wrap}.topbar{padding:12px 16px}.hero-copy h2{max-width:280px}.hero-art{pointer-events:none}.hero-side{max-width:none}.panel-heading span{white-space:normal}.order-overview>div strong{font-size:22px}.delivery-options{grid-template-columns:1fr}.account-card h2{overflow-wrap:anywhere}}
 .nav-item .new-tag,.nav-count{flex-shrink:0;white-space:nowrap;min-width:24px;overflow-wrap:normal}
 /* Long localised hero copy must wrap instead of being clipped by the artwork. */
 .hero-copy{min-width:0}
@@ -61,3 +59,13 @@ html:not([lang="zh-CN"]) .map-point .map-sub{font-size:10px}
   .hero-copy h2,html:not([lang="zh-CN"]) .hero-copy h2{font-size:28px;line-height:1.35;max-width:100%;white-space:normal;overflow-wrap:anywhere}
   .hero-copy p,html:not([lang="zh-CN"]) .hero-copy p{max-width:100%;font-size:12px;line-height:1.7}
 }
+/* Order catalog details. */
+.product-fit{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.catalog-description{padding:15px 0;border-top:1px solid #e4e9e5;margin-top:14px;color:#52646b}
+.catalog-description strong{display:block;font-size:11px;margin-bottom:6px}
+.catalog-description p{font-size:12px;line-height:1.7;margin:0 0 8px}
+.catalog-description small{display:block;font-size:10px;line-height:1.6;color:#86949a}
+
+/* Use the logo extracted from the supplied PDF at its original colors. */
+.brand{justify-content:center;min-height:88px;padding:10px;background:#f5f8fc;border:1px solid #d9e5f1;border-radius:14px;box-shadow:0 10px 26px #0719273b}
+.brand .site-logo{display:block;width:100%;max-width:178px;height:auto;object-fit:contain}

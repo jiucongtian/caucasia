@@ -1,4 +1,5 @@
 import { messages } from './locales/messages.js';
+import { localizePartName, localizeUnit } from './catalog-i18n.js';
 
 export const LANGUAGES = Object.freeze({
   zh: { label: '中文', locale: 'zh-CN', htmlLang: 'zh-CN' },
@@ -52,7 +53,15 @@ export function formatDateTime(value) {
 export const formatTime = value => new Intl.DateTimeFormat(language === 'ka' ? 'en-GB' : getLocale(), { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false, timeZone: 'Asia/Tbilisi' }).format(dateValue(value));
 export const formatMonth = month => language === 'ka' ? tr('date.month' + String(month).padStart(2, '0')) : new Intl.DateTimeFormat(getLocale(), { month: 'short', timeZone: 'Asia/Tbilisi' }).format(new Date(Date.UTC(2026, month - 1, 15)));
 export function localizeError(error) {
-  if (error.code === 'STOCK_LIMIT') return translateSource('{name} 最多可采购 {count} 件', { name: translateSource(error.partName), count: formatNumber(error.limit) });
+  if (error.code === 'STOCK_LIMIT') {
+    const name = localizePartName(error.partName), count = formatNumber(error.limit), itemUnit = localizeUnit(error.unit || '件');
+    return ({
+      zh: `${name} 最多可采购 ${count} ${itemUnit}`,
+      en: `${name}: maximum ${count} ${itemUnit}`,
+      ka: `${name}: მაქსიმუმ ${count} ${itemUnit}`,
+      ru: `${name}: максимум ${count} ${itemUnit}`
+    })[language];
+  }
   return translateSource(error.message);
 }
 export function applyDocumentLanguage() {

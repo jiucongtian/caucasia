@@ -1,20 +1,13 @@
+import { ORDER_PRODUCTS } from './order-catalog.js';
+
 export const ROLES = {
   repair: { label: '汽修店', name: 'Tbilisi Auto Service', initials: 'TA', factor: 1, description: '维修门店采购价', address: '格鲁吉亚 · 第比利斯 · Akaki Tsereteli Ave 116', contact: 'Giorgi', phone: '+995 555 01 28 36' },
   dealer: { label: '经销商', name: 'Caucasus Parts Distribution', initials: 'CP', factor: .65, description: '经销商采购价', address: '格鲁吉亚 · 库塔伊西 · Chavchavadze Ave 34', contact: 'David', phone: '+995 555 02 38 46' },
-  store: { label: '直营店', name: 'Caucasus 第比利斯直营店', initials: 'CA', factor: .55, description: '直营店内部价', address: '格鲁吉亚 · 第比利斯 · Kakheti Highway 12', contact: 'Nika', phone: '+995 555 03 48 56' }
+  store: { label: '直营店', name: 'Starlink 第比利斯直营店', initials: 'CA', factor: .55, description: '直营店内部价', address: '格鲁吉亚 · 第比利斯 · Kakheti Highway 12', contact: 'Nika', phone: '+995 555 03 48 56' }
 };
-export const PRODUCTS = [
-  { id: 'brake', name: '陶瓷前刹车片套装', en: 'CERAMIC BRAKE PADS', brand: 'BOSCH', oe: '04465-33480', sku: 'CA-BR-001', category: '制动系统', vehicle: 'Toyota', model: 'Camry', generation: 'XV70 · 2018–2024', spec: '前轮 · 4 片 / 套', price: 100, stock: 128, type: 'stock', arrival: '本地仓现货', volume: .012, weight: 2.2, stack: true, tag: '采购优选', color: '#e5b24e' },
-  { id: 'filter', name: '高效机油滤清器', en: 'OIL FILTER', brand: 'MANN-FILTER', oe: '11427566327', sku: 'CA-FL-002', category: '滤清系统', vehicle: 'BMW', model: '3 Series', generation: 'F30 · 2012–2019', spec: '滤芯 + 密封圈 · 1 套', price: 18, stock: 356, type: 'stock', arrival: '本地仓现货', volume: .004, weight: .35, stack: true, tag: '高频补货', color: '#dfb454' },
-  { id: 'disc', name: '通风前制动盘', en: 'VENTILATED BRAKE DISC', brand: 'BREMBO', oe: '43512-06090', sku: 'CA-BR-003', category: '制动系统', vehicle: 'Toyota', model: 'Camry', generation: 'XV70 · 2018–2024', spec: '直径 296 mm · 1 件', price: 86, stock: 64, type: 'stock', arrival: '本地仓现货', volume: .021, weight: 7.8, stack: true, tag: '', color: '#8396a4' },
-  { id: 'shock', name: '前悬挂减震器', en: 'FRONT SHOCK ABSORBER', brand: 'SACHS', oe: '54651-C1000', sku: 'CA-SU-004', category: '悬挂系统', vehicle: 'Hyundai', model: 'Sonata', generation: 'LF · 2015–2019', spec: '前左 · 气压式 · 1 件', price: 124, stock: 0, type: 'presale', arrival: '2026-11-20', volume: .038, weight: 4.6, stack: true, tag: '预售专享', color: '#c64c3b' },
-  { id: 'lamp', name: 'LED 前大灯总成', en: 'LED HEADLIGHT ASSEMBLY', brand: 'DEPO', oe: '92101-D3000', sku: 'CA-LT-005', category: '照明系统', vehicle: 'Hyundai', model: 'Tucson', generation: 'TL · 2016–2021', spec: '左侧 · LED · 1 件', price: 248, stock: 0, type: 'presale', arrival: '2026-11-20', volume: .085, weight: 3.4, stack: false, tag: '', color: '#8dabb8' },
-  { id: 'plug', name: '铱金火花塞', en: 'IRIDIUM SPARK PLUG', brand: 'NGK', oe: '22401-ED815', sku: 'CA-IG-006', category: '点火系统', vehicle: 'Nissan', model: 'X-Trail', generation: 'T32 · 2014–2022', spec: '铱金电极 · 4 支 / 套', price: 42, stock: 210, type: 'stock', arrival: '本地仓现货', volume: .003, weight: .24, stack: true, tag: '', color: '#c4cad1' },
-  { id: 'belt', name: '发动机多楔传动皮带', en: 'SERPENTINE DRIVE BELT', brand: 'CONTINENTAL', oe: '90916-02680', sku: 'CA-EN-007', category: '发动机系统', vehicle: 'Toyota', model: 'RAV4', generation: 'XA50 · 2019–2024', spec: '6PK · EPDM 橡胶 · 1 条', price: 32, stock: 92, type: 'stock', arrival: '本地仓现货', volume: .007, weight: .28, stack: true, tag: '', color: '#434b52' },
-  { id: 'pump', name: '发动机冷却水泵', en: 'ENGINE WATER PUMP', brand: 'AISIN', oe: '16100-39466', sku: 'CA-CO-008', category: '冷却系统', vehicle: 'Toyota', model: 'RAV4', generation: 'XA50 · 2019–2024', spec: '机械式 · 含密封垫 · 1 套', price: 76, stock: 0, type: 'presale', arrival: '2026-12-05', volume: .025, weight: 1.5, stack: true, tag: '下一批次', color: '#7f9fab' }
-];
+export const PRODUCTS = ORDER_PRODUCTS;
 export const product = id => PRODUCTS.find(p => p.id === id);
-export const unit = p => p.spec.includes('套') ? '套' : p.spec.includes('条') ? '条' : '件';
+export const unit = p => p.spec.includes('瓶') ? '瓶' : p.spec.includes('副') ? '副' : p.spec.includes('套') ? '套' : p.spec.includes('条') ? '条' : '件';
 export const round = n => Math.round((n + Number.EPSILON) * 100) / 100;
 export const price = (p, role) => round(p.price * ROLES[role].factor);
 export const money = n => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(n);
@@ -26,7 +19,7 @@ export function validateCart(cart) {
     const p = product(line.id);
     if (!p || ids.has(line.id) || !Number.isInteger(line.qty) || line.qty < 1 || line.qty > 999) throw new Error('商品数量需为 1–999 的整数');
     ids.add(line.id);
-    if (p.type === 'stock' && line.qty > p.stock) throw Object.assign(new Error(`${p.name} 最多可采购 ${p.stock} 件`), { code: 'STOCK_LIMIT', partName: p.name, limit: p.stock });
+    if (p.type === 'stock' && line.qty > p.stock) throw Object.assign(new Error(`${p.name} 最多可采购 ${p.stock} ${unit(p)}`), { code: 'STOCK_LIMIT', partName: p.name, limit: p.stock, unit: unit(p) });
   }
 }
 export function createOrder(cart, role, delivery, address, now = new Date()) {
@@ -58,16 +51,12 @@ export function advanceOrder(order, type) {
   return { ...order, stages: { ...order.stages, [type]: Math.min(order.stages[type] + 1, stages(type, order.delivery).length - 1) } };
 }
 export function seedOrders(role) {
-  const r = ROLES[role], a = { contact: r.contact, phone: r.phone, address: r.address };
-  return [
-    { items: [{ id: 'brake', qty: 12 }, { id: 'filter', qty: 24 }], d: 'delivery', date: '2026-10-06T08:24:00Z', payment: 'paid', stock: 2, presale: 0 },
-    { items: [{ id: 'shock', qty: 10 }, { id: 'lamp', qty: 6 }], d: 'delivery', date: '2026-10-03T10:15:00Z', payment: 'paid', stock: 0, presale: 1 },
-    { items: [{ id: 'plug', qty: 8 }], d: 'pickup', date: '2026-10-01T07:30:00Z', payment: 'paid', stock: 2, presale: 0 }
-  ].map((s, i) => ({ ...createOrder(s.items, role, s.d, a, new Date(s.date)), id: `CA-${s.date.slice(0, 10).replaceAll('-', '')}-${role.toUpperCase()}0${i + 1}`, payment: s.payment, stages: { stock: s.stock, presale: s.presale } }));
+  if (!ROLES[role]) throw new Error('请选择采购身份');
+  return [];
 }
 export const BATCHES = {
-  november: { label: '11 月联合采购批次', id: 'CN-GE-2611', date: '2026-11-20', lines: [{ id: 'shock', qty: 700 }, { id: 'lamp', qty: 160 }, { id: 'brake', qty: 700 }, { id: 'filter', qty: 2400 }] },
-  december: { label: '12 月补货采购批次', id: 'CN-GE-2612', date: '2026-12-05', lines: [{ id: 'pump', qty: 520 }, { id: 'disc', qty: 560 }, { id: 'belt', qty: 800 }, { id: 'plug', qty: 600 }] }
+  november: { label: '订单滤清与制动配件', id: 'ORD-20261009-A', date: '2026-11-20', lines: [{ id: 'order-001', qty: 100 }, { id: 'order-003', qty: 100 }, { id: 'order-015', qty: 100 }, { id: 'order-025', qty: 100 }] },
+  december: { label: '订单保养与制动配件', id: 'ORD-20261009-B', date: '2026-12-05', lines: [{ id: 'order-035', qty: 100 }, { id: 'order-036', qty: 100 }, { id: 'order-042', qty: 100 }, { id: 'order-043', qty: 100 }] }
 };
 export function packing(batch, optimized = true) {
   const volume = round(batch.lines.reduce((s, l) => s + product(l.id).volume * l.qty, 0));

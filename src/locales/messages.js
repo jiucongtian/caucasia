@@ -51,7 +51,7 @@ export const messages = [
     "context": "setRole",
     "en": "Import pre-order",
     "ka": "იმპორტის წინასწარი შეკვეთა",
-    "ru": "Предзаказ из-за рубежа",
+    "ru": "Предзаказ импортного товара",
     "source": "跨境预售"
   },
   {
@@ -87,7 +87,7 @@ export const messages = [
     "context": "shell",
     "en": "Container planning",
     "ka": "კონტეინერის დაგეგმვა",
-    "ru": "Планирование загрузки",
+    "ru": "Планирование контейнерных перевозок.",
     "source": "智能拼柜"
   },
   {
@@ -137,12 +137,12 @@ export const messages = [
   },
   {
     "id": "shell.1944a1b9",
-    "zh": "高加索汽配",
+    "zh": "Starlink",
     "context": "shell",
     "en": "Auto parts",
     "ka": "ავტონაწილები",
     "ru": "Автозапчасти",
-    "source": "高加索汽配"
+    "source": "Starlink"
   },
   {
     "id": "shell.94161b6c",
@@ -167,8 +167,8 @@ export const messages = [
     "zh": "连接货源，抵达所需",
     "context": "shell",
     "en": "Parts sourced. Business supplied.",
-    "ka": "ავტონაწილები თქვენი ბიზნესისთვის",
-    "ru": "Запчасти для вашего бизнеса",
+    "ka": "ნაწილების წყარო. ბიზნესისთვის საჭირო მარაგები.",
+    "ru": "Источник запчастей. Товары для бизнеса.",
     "source": "连接货源，抵达所需"
   },
   {
@@ -195,7 +195,7 @@ export const messages = [
     "context": "shell",
     "en": "Demo guide",
     "ka": "დემოს გზამკვლევი",
-    "ru": "Как пользоваться демо",
+    "ru": "Руководство по демоверсии",
     "source": "演示指南"
   },
   {
@@ -236,12 +236,12 @@ export const messages = [
   },
   {
     "id": "shell.802c555a",
-    "zh": "© 2026 CAUCASUS · 高加索汽配",
+    "zh": "© 2026 Starlink · 汽配采购平台",
     "context": "shell",
-    "en": "© 2026 CAUCASUS · Auto parts",
-    "ka": "© 2026 CAUCASUS · ავტონაწილები",
-    "ru": "© 2026 CAUCASUS · Автозапчасти",
-    "source": "© 2026 CAUCASUS · 高加索汽配"
+    "en": "© 2026 Starlink · Auto parts",
+    "ka": "© 2026 Starlink · ავტონაწილები",
+    "ru": "© 2026 Starlink · Автозапчасти",
+    "source": "© 2026 Starlink · 汽配采购平台"
   },
   {
     "id": "shell.9d032589",
@@ -389,12 +389,12 @@ export const messages = [
   },
   {
     "id": "catalog.9db6b497",
-    "zh": "CAUCASUS PROCUREMENT",
+    "zh": "Starlink PROCUREMENT",
     "context": "catalog",
-    "en": "CAUCASUS PURCHASING",
-    "ka": "CAUCASUS შესყიდვები",
-    "ru": "ЗАКУПКИ CAUCASUS",
-    "source": "CAUCASUS PROCUREMENT"
+    "en": "Starlink PURCHASING",
+    "ka": "Starlink შესყიდვები",
+    "ru": "ЗАКУПКИ Starlink",
+    "source": "Starlink PROCUREMENT"
   },
   {
     "id": "catalog.b4c2009e",
@@ -416,7 +416,7 @@ export const messages = [
   },
   {
     "id": "catalog.e9921a9f",
-    "zh": "选购本地现货 ",
+    "zh": "选购本地现货",
     "context": "catalog",
     "en": "Shop local stock",
     "ka": "ადგილობრივი მარაგის ნახვა",
@@ -536,8 +536,8 @@ export const messages = [
     "zh": "全部供给",
     "context": "catalog",
     "en": "All availability",
-    "ka": "ყველა შეთავაზება",
-    "ru": "Все предложения",
+    "ka": "ყველა აქტუალური შეთავაზება",
+    "ru": "Все варианты наличия",
     "source": "全部供给"
   },
   {
@@ -599,8 +599,8 @@ export const messages = [
     "zh": "供给有数，交付有期。",
     "context": "catalog",
     "en": "Clear availability. Planned delivery.",
-    "ka": "გამჭვირვალე მარაგი. დაგეგმილი მიწოდება.",
-    "ru": "Понятные остатки и сроки поставки",
+    "ka": "ზუსტი ინფორმაცია მარაგის შესახებ. წინასწარ დაგეგმილი მიწოდება.",
+    "ru": "Точная информация о наличии на складе и сроки поставки",
     "source": "供给有数，交付有期。"
   },
   {
@@ -860,8 +860,8 @@ export const messages = [
     "zh": "免配送费 · 备货完成后通知",
     "context": "checkout",
     "en": "No delivery fee · We notify you when ready",
-    "ka": "მიწოდების საფასურის გარეშე · შეგატყობინებთ მზადყოფნას",
-    "ru": "Без платы за доставку · Уведомим о готовности",
+    "ka": "მიწოდება უფასოა. შეგატყობინებთ როდესაც შეკვეთა გამზადდება.",
+    "ru": "Доставка бесплатная. Мы уведомим вас, когда товар будет готов.",
     "source": "免配送费 · 备货完成后通知"
   },
   {
@@ -924,7 +924,7 @@ export const messages = [
     "context": "checkout",
     "en": "Pricing profile: {v18}",
     "ka": "ფასის პროფილი: {v18}",
-    "ru": "Цены профиля: {v18}",
+    "ru": "Профиль ценообразования: {v18}",
     "source": "按{v18}价格结算"
   },
   {
@@ -932,7 +932,7 @@ export const messages = [
     "zh": "商品金额",
     "context": "checkout",
     "en": "Items subtotal",
-    "ka": "ნაწილების ღირებულება",
+    "ka": "ნაწილების სრული ღირებულება",
     "ru": "Стоимость товаров",
     "source": "商品金额"
   },
@@ -978,7 +978,7 @@ export const messages = [
     "context": "checkout",
     "en": "After placing an order, you can simulate payment and verification. This demo uses full payment and does not charge you.",
     "ka": "შეკვეთის შემდეგ შეგიძლიათ გადახდისა და შემოწმების სიმულაცია. დემო ითვალისწინებს სრულ გადახდას; თანხა რეალურად არ ჩამოიჭრება.",
-    "ru": "После оформления можно смоделировать оплату и её проверку. В демо предусмотрена полная оплата; реальные деньги не списываются.",
+    "ru": "После оформления заказа вы можете выполнить имитацию оплаты и проверки. В этой демоверсии используется процесс полной оплаты, однако фактическое списание средств не производится.",
     "source": "提交订单后可模拟付款与核账。当前演示按全额结算，不发生实际扣款。"
   },
   {
@@ -1265,8 +1265,8 @@ export const messages = [
     "zh": "正在生成模拟方案…",
     "context": "packingView",
     "en": "Generating sample loading plan…",
-    "ka": "იტვირთება ჩატვირთვის საცდელი გეგმა…",
-    "ru": "Создаём пример плана загрузки…",
+    "ka": "ნიმუშების განთავსების გეგმის გენერირება…",
+    "ru": "Создание плана загрузки образцов…",
     "source": "正在生成模拟方案…"
   },
   {
@@ -1328,8 +1328,8 @@ export const messages = [
     "zh": "需另行安排批次",
     "context": "packingView",
     "en": "Requires a separate shipment",
-    "ka": "საჭიროა ცალკე პარტია",
-    "ru": "Нужна отдельная партия",
+    "ka": "საჭიროებს ცალკე გაგზავნას",
+    "ru": "Требует отдельной отправки",
     "source": "需另行安排批次"
   },
   {
@@ -1388,11 +1388,11 @@ export const messages = [
   },
   {
     "id": "packingView.0dc92dfb",
-    "zh": " 件",
+    "zh": "件",
     "context": "packingView",
-    "en": " units",
-    "ka": " ერთეული",
-    "ru": " шт.",
+    "en": "units",
+    "ka": "ერთეული",
+    "ru": "шт.",
     "source": " 件"
   },
   {
@@ -1426,9 +1426,9 @@ export const messages = [
     "id": "packingView.cb12d8f9",
     "zh": "尚未装入。",
     "context": "packingView",
-    "en": " not loaded.",
-    "ka": " არ ჩაიტვირთა.",
-    "ru": " не загружено.",
+    "en": "not loaded.",
+    "ka": "არ ჩაიტვირთა.",
+    "ru": "не загружено.",
     "source": "尚未装入。"
   },
   {
@@ -1572,7 +1572,7 @@ export const messages = [
     "context": "packingView",
     "en": "GLOBAL PARTS / CN → GE",
     "ka": "ავტონაწილები / CN → GE",
-    "ru": "ПОСТАВКИ ЗАПЧАСТЕЙ / CN → GE",
+    "ru": "ГЛОБАЛЬНЫЕ ЗАПЧАСТИ / CN → GE",
     "source": "GLOBAL PARTS / CN → GE"
   },
   {
@@ -1829,21 +1829,21 @@ export const messages = [
   },
   {
     "id": "dashboard.a0d4af37",
-    "zh": "CAUCASUS / OPERATIONS INTELLIGENCE",
+    "zh": "Starlink / OPERATIONS INTELLIGENCE",
     "context": "dashboard",
-    "en": "CAUCASUS / OPERATIONS",
-    "ka": "CAUCASUS / ოპერაციები",
-    "ru": "CAUCASUS / ОПЕРАЦИИ",
-    "source": "CAUCASUS / OPERATIONS INTELLIGENCE"
+    "en": "Starlink / OPERATIONS",
+    "ka": "Starlink / ოპერაციები",
+    "ru": "Starlink / ОПЕРАЦИИ",
+    "source": "Starlink / OPERATIONS INTELLIGENCE"
   },
   {
     "id": "dashboard.58730e61",
-    "zh": "高加索汽配 · 运营全景",
+    "zh": "Starlink · 运营全景",
     "context": "dashboard",
-    "en": "CAUCASUS · Operations overview",
-    "ka": "CAUCASUS · ოპერაციების მიმოხილვა",
-    "ru": "CAUCASUS · Обзор операций",
-    "source": "高加索汽配 · 运营全景"
+    "en": "Starlink · Operations overview",
+    "ka": "Starlink · ოპერაციების მიმოხილვა",
+    "ru": "Starlink · Обзор операций",
+    "source": "Starlink · 运营全景"
   },
   {
     "id": "dashboard.9ce46aa6",
@@ -2036,7 +2036,7 @@ export const messages = [
   },
   {
     "id": "dashboard.c0da0b2d",
-    "zh": "查看拼柜 ",
+    "zh": "查看拼柜",
     "context": "dashboard",
     "en": "View container plans",
     "ka": "ჩატვირთვის გეგმების ნახვა",
@@ -2156,7 +2156,7 @@ export const messages = [
     "zh": "身份切换仅用于演示。不同账号的采购清单、订单和地址独立保存。",
     "context": "accountView",
     "en": "Account switching is for demonstration. Each account keeps its own order list, orders and addresses.",
-    "ka": "ანგარიშის შეცვლა სადემონსტრაციოა. თითოეულ ანგარიშს ცალკე ინახება სია, შეკვეთები და მისამართები.",
+    "ka": "ანგარიშის შეცვლა სადემონსტრაციოა. თითოეულ ანგარიშზე ცალკე ინახება ცალკეული საყიდლების სიები, შეკვეთები და მისამართები.",
     "ru": "Смена профиля используется для демонстрации. У каждого профиля отдельные списки закупки, заказы и адреса.",
     "source": "身份切换仅用于演示。不同账号的采购清单、订单和地址独立保存。"
   },
@@ -2301,7 +2301,7 @@ export const messages = [
     "context": "productModal",
     "en": "Delivery",
     "ka": "მიწოდება",
-    "ru": "Получение",
+    "ru": "Доставка",
     "source": "交付"
   },
   {
@@ -2351,12 +2351,12 @@ export const messages = [
   },
   {
     "id": "rolesModal.e1d68c9a",
-    "zh": "WELCOME TO CAUCASUS",
+    "zh": "WELCOME TO Starlink",
     "context": "rolesModal",
-    "en": "WELCOME TO CAUCASUS",
-    "ka": "კეთილი იყოს თქვენი მობრძანება CAUCASUS-ში",
-    "ru": "ДОБРО ПОЖАЛОВАТЬ В CAUCASUS",
-    "source": "WELCOME TO CAUCASUS"
+    "en": "WELCOME TO Starlink",
+    "ka": "კეთილი იყოს თქვენი მობრძანება Starlink-ში",
+    "ru": "ДОБРО ПОЖАЛОВАТЬ В Starlink",
+    "source": "WELCOME TO Starlink"
   },
   {
     "id": "rolesModal.12e18e5e",
@@ -2372,8 +2372,8 @@ export const messages = [
     "zh": "这些是演示账号，未接入真实认证服务。C 端与供应商价格规则待确认。",
     "context": "rolesModal",
     "en": "These are sample accounts with no live authentication. Consumer and supplier price rules are still to be agreed.",
-    "ka": "ეს საცდელი ანგარიშებია, რეალური ავტორიზაციის გარეშე. კერძო მომხმარებლებისა და მომწოდებლების ფასები ჯერ დასაზუსტებელია.",
-    "ru": "Это демонстрационные профили без настоящей авторизации. Правила цен для частных покупателей и поставщиков ещё не согласованы.",
+    "ka": "ეს არის საცდელი ანგარიშები, რომლებსაც არ გააჩნია რეალური ავთენტიფიკაციის ფუნქცია. მომხმარებლისა და მომწოდებლის ფასწარმოქმნის წესები ჯერ კიდევ შესათანხმებელია.",
+    "ru": "Это демонстрационные учетные записи, в которых не реализована аутентификация в реальных условиях. Правила ценообразования для потребителей и поставщиков еще предстоит согласовать.",
     "source": "这些是演示账号，未接入真实认证服务。C 端与供应商价格规则待确认。"
   },
   {
@@ -2426,8 +2426,8 @@ export const messages = [
     "zh": "PROCUREMENT LIST",
     "context": "cartModal",
     "en": "ORDER LIST",
-    "ka": "შესაკვეთების სია",
-    "ru": "СПИСОК ЗАКУПКИ",
+    "ka": "შესაკვეთი ნივთების სია",
+    "ru": "Список товаров для заказа",
     "source": "PROCUREMENT LIST"
   },
   {
@@ -2480,8 +2480,8 @@ export const messages = [
     "zh": "已完成模拟核账",
     "context": "orderModal",
     "en": "Simulated payment verified",
-    "ka": "გადახდის სიმულაცია შემოწმებულია",
-    "ru": "Проверка оплаты смоделирована",
+    "ka": "სიმულირებული გადახდა დადასტურებულია",
+    "ru": "Имитированный платеж подтвержден",
     "source": "已完成模拟核账"
   },
   {
@@ -2489,8 +2489,8 @@ export const messages = [
     "zh": "模拟提交付款",
     "context": "orderModal",
     "en": "Simulate payment submission",
-    "ka": "გადახდის წარდგენის სიმულაცია",
-    "ru": "Смоделировать отправку оплаты",
+    "ka": "გადახდის სიმულირება",
+    "ru": "Имитировать платеж",
     "source": "模拟提交付款"
   },
   {
@@ -2499,7 +2499,7 @@ export const messages = [
     "context": "orderModal",
     "en": "Simulate payment approval",
     "ka": "გადახდის დადასტურების სიმულაცია",
-    "ru": "Смоделировать подтверждение оплаты",
+    "ru": "Имитировать подтверждение оплаты",
     "source": "模拟核账通过"
   },
   {
@@ -2675,12 +2675,12 @@ export const messages = [
   },
   {
     "id": "helpModal.a1c2df90",
-    "zh": "用一笔采购，认识高加索",
+    "zh": "用一笔采购，认识 Starlink",
     "context": "helpModal",
-    "en": "Explore CAUCASUS with a sample order",
-    "ka": "გაეცანით CAUCASUS-ს საცდელი შეკვეთით",
-    "ru": "Познакомьтесь с CAUCASUS на примере заказа",
-    "source": "用一笔采购，认识高加索"
+    "en": "Explore Starlink with a sample order",
+    "ka": "გაეცანით Starlink-ს საცდელი შეკვეთით",
+    "ru": "Познакомьтесь с Starlink на примере заказа",
+    "source": "用一笔采购，认识 Starlink"
   },
   {
     "id": "helpModal.8f22a1de",
@@ -2954,12 +2954,12 @@ export const messages = [
   },
   {
     "id": "data.ba757335",
-    "zh": "Caucasus 第比利斯直营店",
+    "zh": "Starlink 第比利斯直营店",
     "context": "data",
-    "en": "CAUCASUS Tbilisi branch",
-    "ka": "CAUCASUS-ის თბილისის ფილიალი",
-    "ru": "Филиал CAUCASUS в Тбилиси",
-    "source": "Caucasus 第比利斯直营店"
+    "en": "Starlink Tbilisi branch",
+    "ka": "Starlink-ის თბილისის ფილიალი",
+    "ru": "Филиал Starlink в Тбилиси",
+    "source": "Starlink 第比利斯直营店"
   },
   {
     "id": "data.7f8a1a99",
@@ -3021,7 +3021,7 @@ export const messages = [
     "context": "data",
     "en": "Purchasing pick",
     "ka": "შერჩეული პროდუქტი",
-    "ru": "Рекомендуем для закупки",
+    "ru": "Выбранный товар",
     "source": "采购优选"
   },
   {
@@ -3056,8 +3056,8 @@ export const messages = [
     "zh": "高频补货",
     "context": "data",
     "en": "Frequent replenishment",
-    "ka": "ხშირად შესავსები",
-    "ru": "Частое пополнение",
+    "ka": "ხშირად შესავსები მარაგები",
+    "ru": "Регулярно пополняемые запасы",
     "source": "高频补货"
   },
   {
@@ -3449,20 +3449,20 @@ export const messages = [
   },
   {
     "id": "data.d3bff1e8",
-    "zh": "Caucasus 汽配采购平台",
+    "zh": "Starlink 汽配采购平台",
     "context": "data",
-    "en": "CAUCASUS Auto Parts Purchasing",
-    "ka": "CAUCASUS ავტონაწილების შესყიდვები",
-    "ru": "CAUCASUS Закупка автозапчастей",
-    "source": "Caucasus 汽配采购平台"
+    "en": "Starlink Auto Parts Purchasing",
+    "ka": "Starlink ავტონაწილების შესყიდვები",
+    "ru": "Starlink Закупка автозапчастей",
+    "source": "Starlink 汽配采购平台"
   },
   {
     "id": "data.18d48bb6",
     "zh": "供应链采购演示：角色价格、库存采购、订单进度与拼柜。",
     "context": "data",
     "en": "Purchasing demo: account prices, stock orders, order tracking and container planning.",
-    "ka": "შესყიდვების დემო: ანგარიშის ფასები, მარაგის შეკვეთები, თვალყურის დევნება და კონტეინერის დაგეგმვა.",
-    "ru": "Демо закупок: цены профилей, заказы, отслеживание поставок и планирование загрузки.",
+    "ka": "შესყიდვების დემო: ანგარიშის ფასები, მარაგის შეკვეთები, შეკვეთების სტატუსის მონიტორინგი და კონტეინერის დაგეგმვა.",
+    "ru": "Демонстрация процесса закупок: ценовые предложения, заказы на пополнение запасов, отслеживание статуса заказов и планирование контейнерных поставок.",
     "source": "供应链采购演示：角色价格、库存采购、订单进度与拼柜。"
   },
   {

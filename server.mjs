@@ -15,4 +15,4 @@ http.createServer(async (req, res) => {
     res.writeHead(200, { 'Content-Type': mime[extname(path)] || 'application/octet-stream', 'Cache-Control': 'no-cache' });
     res.end(data);
   } catch { res.writeHead(404); res.end('Not found'); }
-}).listen(Number(process.env.PORT || 5173), '127.0.0.1', () => console.log('Caucasus Demo: http://127.0.0.1:' + (process.env.PORT || 5173)));
+}).listen(Number(process.env.PORT || 5173), '127.0.0.1', () => console.log('Starlink Demo: http://127.0.0.1:' + (process.env.PORT || 5173)));
