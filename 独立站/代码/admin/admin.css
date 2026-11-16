@@ -2,3 +2,5 @@
 
 header nav{flex-wrap:wrap}header nav select{width:auto;max-width:180px}.login-language{display:flex;justify-content:flex-end;margin-bottom:20px}.login-language select{width:auto}.panel,.editor-main,.side{min-width:0}label,.side p{overflow-wrap:anywhere}@media(max-width:650px){header{flex-wrap:wrap;gap:12px}header nav{gap:12px}.heading{flex-wrap:wrap}.toolbar{flex-wrap:wrap}.toolbar input{min-width:0}}
 .upload{position:relative;cursor:pointer}.upload input[type=file]{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer}.upload:focus-within{outline:2px solid #986023;outline-offset:3px}
+
+.attribute-field{display:flex;flex-direction:column;gap:9px;min-width:0}.attribute-field input,.attribute-field select{width:100%}
