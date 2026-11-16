@@ -6,7 +6,7 @@ export function filterVehicles(cars,params,currency='USD'){
  const q=(p.get('q')||'').trim().toLowerCase();
  const rows=cars.filter(c=>{
   const b=brands.find(b=>b.id===c.brand);
-  if(q&&!`${c.zh} ${c.en} ${b.zh} ${b.en} ${c.code}`.toLowerCase().includes(q))return false;
+  if(q&&!`${c.zh} ${c.en} ${c.ka||''} ${c.ru||''} ${b.zh} ${b.en} ${b.ka} ${b.ru} ${c.code}`.toLowerCase().includes(q))return false;
   if(p.get('brand')&&p.get('brand')!==c.brand)return false;
   if(p.get('model')&&p.get('model')!==c.id)return false;
   if(p.get('energy')&&p.get('energy')!==c.energy)return false;
@@ -27,4 +27,4 @@ export function validateRanges(p){
  if(p.get('from')&&p.get('to')&&p.get('from')>p.get('to'))return false;
  return true;
 }
-export function safeReturn(value){return typeof value==='string'&&/^\/(zh|en)\/(vehicles|favorites)(\?|$)/.test(value)?value:null;}
+export function safeReturn(value){return typeof value==='string'&&/^\/(ka|ru|zh|en)\/(vehicles|favorites)(\?|$)/.test(value)?value:null;}

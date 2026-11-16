@@ -11,3 +11,14 @@
 .gallery-stage{position:relative}.gallery-arrow{position:absolute;top:46%;height:37px;width:37px;border-radius:50%;background:#fffE;font-size:26px;line-height:1;box-shadow:0 1px 8px #0002}.gallery-arrow.previous{left:12px}.gallery-arrow.next{right:12px}.gallery-thumbs{display:flex;gap:9px;margin-top:4px;overflow:auto;padding:3px}.gallery-thumbs button{padding:0;border:2px solid transparent;border-radius:6px;overflow:hidden;flex:1;min-width:55px;opacity:.65}.gallery-thumbs button[aria-pressed=true]{border-color:var(--blue);opacity:1}.gallery-thumbs img{aspect-ratio:1.4;width:100%;object-fit:cover}.lightbox-controls{display:flex;align-items:center;justify-content:center;gap:25px;margin-top:15px;font-size:12px}.lightbox-controls .button{padding:5px 14px;min-height:32px}
 
 .vehicle-description{white-space:pre-wrap;overflow-wrap:anywhere}
+/* Allow longer Georgian and Russian labels to wrap without clipping. */
+:lang(ka) h1,:lang(ka) h2,:lang(ka) .eyebrow{letter-spacing:0}
+:lang(ka) .hero h1,:lang(ru) .hero h1{font-size:clamp(30px,3.3vw,48px);max-width:740px}
+:lang(ka) .button,:lang(ru) .button{white-space:normal;text-align:center}
+:lang(ka) .car-price,:lang(ru) .car-price{flex-wrap:wrap}
+:lang(ka) .gallery-caption,:lang(ru) .gallery-caption{gap:12px;flex-wrap:wrap}
+:lang(ka) .header-inner,:lang(ru) .header-inner{gap:18px}
+:lang(ka) .desktop-nav,:lang(ru) .desktop-nav{gap:16px}
+@media(max-width:1450px){:lang(ka) .brand>span,:lang(ru) .brand>span{display:none}}
+@media(max-width:1150px){:lang(ka) .desktop-nav,:lang(ka) .desktop-settings,:lang(ru) .desktop-nav,:lang(ru) .desktop-settings{display:none}:lang(ka) .mobile-menu,:lang(ru) .mobile-menu{display:inline-flex}:lang(ka) .header-actions,:lang(ru) .header-actions{margin-left:auto}}
+@media(max-width:560px){:lang(ka) .hero h1,:lang(ru) .hero h1{font-size:30px}:lang(ka) .vehicle-grid:not(.catalog-grid),:lang(ru) .vehicle-grid:not(.catalog-grid){grid-template-columns:1fr}:lang(ka) .stats,:lang(ru) .stats{gap:12px}:lang(ka) .stats>div>span,:lang(ru) .stats>div>span{font-size:10px}}

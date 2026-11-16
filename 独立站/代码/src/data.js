@@ -1,9 +1,9 @@
 // All vehicle records below are illustrative fixtures, not Starlink inventory or offers.
 export const brands = [
- {id:'byd',zh:'比亚迪',en:'BYD',mark:'BYD',type:'core'},
- {id:'changan',zh:'长安启源',en:'Changan NEVO',mark:'CHANGAN',type:'core'},
- {id:'voyah',zh:'岚图',en:'VOYAH',mark:'VOYAH',type:'order'},
- {id:'zeekr',zh:'极氪',en:'ZEEKR',mark:'ZEEKR',type:'order'}
+ {id:'byd',zh:'比亚迪',en:'BYD',ka:'BYD',ru:'BYD',mark:'BYD',type:'core'},
+ {id:'changan',zh:'长安启源',en:'Changan NEVO',ka:'Changan NEVO',ru:'Changan NEVO',mark:'CHANGAN',type:'core'},
+ {id:'voyah',zh:'岚图',en:'VOYAH',ka:'VOYAH',ru:'VOYAH',mark:'VOYAH',type:'order'},
+ {id:'zeekr',zh:'极氪',en:'ZEEKR',ka:'ZEEKR',ru:'ZEEKR',mark:'ZEEKR',type:'order'}
 ];
 export const vehicles = [
  ['han','byd','汉','Han','2025-06',8600,'phev',24800,'sedan',true],
@@ -15,7 +15,7 @@ export const vehicles = [
  ['voyah-dream','voyah','梦想家','Dream','2025-03',9800,'phev',45800,'mpv',false],
  ['zeekr-9x','zeekr','9X','9X','2025-10',2600,'phev',68900,'suv',false]
 ].map(([id,brand,zh,en,date,mileage,energy,price,body,featured],i)=>({id,brand,zh,en,date,mileage,energy,price,body,featured,image:`/assets/car-${i+1}.webp`,images:[`/assets/car-${i+1}.webp`],code:`SL-DEMO-${String(i+1).padStart(3,'0')}`,demo:true,seats:body==='mpv'?7:5,transmission:'auto',color:i%2?'white':'black',status:'sample'}));
-export const markets=[{id:'ge',zh:'格鲁吉亚',en:'Georgia',flag:'🇬🇪',currency:'GEL'},{id:'am',zh:'亚美尼亚',en:'Armenia',flag:'🇦🇲',currency:'USD'}];
+export const markets=[{id:'ge',zh:'格鲁吉亚',en:'Georgia',ka:'საქართველო',ru:'Грузия',flag:'🇬🇪',currency:'GEL'},{id:'am',zh:'亚美尼亚',en:'Armenia',ka:'სომხეთი',ru:'Армения',flag:'🇦🇲',currency:'USD'}];
 // Fixed illustrative conversion for the prototype only, not live exchange rates.
 export const rates={USD:1,GEL:2.7};
 export const company={name:'Starlink 星联达集团',city:'Tbilisi',annualSales:'300+',showroom:400,workshop:1200,phone:'',email:'',whatsapp:'',telegram:''};

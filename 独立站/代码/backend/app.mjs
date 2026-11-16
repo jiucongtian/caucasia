@@ -45,7 +45,7 @@ export function createApp({dataDir=process.env.STARLINK_DATA_DIR||path.join(path
    }
    if(mutation)fail(405,'不支持此请求方法');
    let target;
-   if(p==='/'||/^\/(zh|en)(\/[^.]*)?$/.test(p))target=path.join(root,'index.html');
+   if(p==='/'||/^\/(ka|ru|zh|en)(\/[^.]*)?$/.test(p))target=path.join(root,'index.html');
    else if(p==='/admin'||p==='/admin/')target=path.join(root,'admin/index.html');
    else if(/^\/(src|admin)\/[a-zA-Z0-9-]+\.(js|css)$/.test(p))target=path.join(root,p);
    else if(/^\/assets\/[a-zA-Z0-9-]+\.(png|jpg|webp|svg)$/.test(p))target=path.join(root,'public',p);
