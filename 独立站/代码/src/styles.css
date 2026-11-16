@@ -22,3 +22,5 @@
 @media(max-width:1450px){:lang(ka) .brand>span,:lang(ru) .brand>span{display:none}}
 @media(max-width:1150px){:lang(ka) .desktop-nav,:lang(ka) .desktop-settings,:lang(ru) .desktop-nav,:lang(ru) .desktop-settings{display:none}:lang(ka) .mobile-menu,:lang(ru) .mobile-menu{display:inline-flex}:lang(ka) .header-actions,:lang(ru) .header-actions{margin-left:auto}}
 @media(max-width:560px){:lang(ka) .hero h1,:lang(ru) .hero h1{font-size:30px}:lang(ka) .vehicle-grid:not(.catalog-grid),:lang(ru) .vehicle-grid:not(.catalog-grid){grid-template-columns:1fr}:lang(ka) .stats,:lang(ru) .stats{gap:12px}:lang(ka) .stats>div>span,:lang(ru) .stats>div>span{font-size:10px}}
+
+.equipment-list{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin:0;padding:0}.equipment-list li{padding:9px 14px;border:1px solid #dce5df;border-radius:7px;background:#f4f8f5;color:#315343;font-size:14px;overflow-wrap:anywhere;max-width:100%}.equipment-list li::before{content:"✓";margin-right:8px}@media(max-width:560px){.equipment-list{gap:8px}.equipment-list li{font-size:12px;padding:8px 11px}}

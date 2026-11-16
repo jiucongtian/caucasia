@@ -6,7 +6,7 @@ test('unknown remains distinct from no, missing documents and zero; partial and 
  const old=validateAttributes({accident:'no',sunroof:'absent',registration:'missing',keyCount:0,batterySoh:98.5});
  assert.equal(old.flood,'unknown');assert.equal(old.transferCount,'');assert.equal(old.keyCount,0);
  assert.deepEqual(validateAttributes(undefined,old),old);assert.equal(validateAttributes({registration:'provided'},old).batterySoh,98.5);assert.equal(validateAttributes({batterySoh:''},old).batterySoh,'');assert.equal(validateAttributes({accident:'unknown'},old).accident,'unknown');
- const html=attributeSections(old,'zh');assert.match(html,/未配备/);assert.match(html,/未提供/);assert.match(html,/待确认/);assert.match(html,/<dd>0<\/dd>/);
+ const html=attributeSections(old,'zh');assert.doesNotMatch(html,/未配备/);assert.match(html,/未提供/);assert.doesNotMatch(html,/待确认/);assert.match(html,/<dd>0<\/dd>/);
 });
 test('validate enum, numbers, dates, nested input and escape free text',()=>{
  for(const value of [null,[],{other:true},{accident:true},{registration:'verified'},{batterySoh:101},{keyCount:1.5},{powerHp:-1},{rangeKm:'120'},{inspectionDate:'2026-02-30'},{firstRegistration:'2026-13'},{trim:'x'.repeat(121)}])assert.throws(()=>validateAttributes(value),/vehicle_attributes_invalid/);
@@ -18,4 +18,14 @@ test('all structured labels and choices cover four languages',()=>{
 test('form collection preserves attributes during language switches without flattening or losing unknowns',()=>{
  const data=new FormData();for(const [k,v] of Object.entries({attr_trim:'Long range',attr_keyCount:'0',attr_batterySoh:'',attr_rearCamera:'present',attr_registration:'provided',price:'100',mileage:'0',seats:'5'}))data.set(k,v);
  const value=collectVehicle(data,{version:3,attributes:{sunroof:'absent'}},[]);assert.equal(value.attributes.keyCount,0);assert.equal(value.attributes.batterySoh,'');assert.equal(value.attributes.sunroof,'absent');assert.equal(value.attributes.registration,'provided');assert.equal(value.version,3);assert.equal(Object.hasOwn(value,'attr_trim'),false);assert.equal(collectAttributes(data).rearCamera,'present');
+});
+
+test('public details hide empty groups and unknown fields, equipment lists only confirmed present features',()=>{
+ for(const lang of ['zh','en','ka','ru']){
+  assert.equal(attributeSections({},lang),'');assert.equal(attributeSections(validateAttributes({}),lang),'');
+ }
+ const html=attributeSections({trim:'  ',sunroof:'present',rearCamera:'absent',cruise:'unknown',registration:'unknown',inspectionReport:'missing',keyCount:0,accident:'no'},'zh');
+ assert.match(html,/<ul class="equipment-list"><li>天窗<\/li><\/ul>/);assert.doesNotMatch(html,/倒车影像|定速巡航|补充车辆参数|行驶证|待确认/);
+ assert.match(html,/检测报告/);assert.match(html,/未提供/);assert.match(html,/事故记录/);assert.match(html,/<dd>无<\/dd>/);assert.match(html,/<dd>0<\/dd>/);
+ assert.match(attributeEditor({},'zh'),/待确认/);
 });
