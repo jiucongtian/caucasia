@@ -1,0 +1,25 @@
+name: starlink-test
+services:
+  web:
+    image: starlink-auto:${RELEASE_ID:?Set RELEASE_ID}
+    build:
+      context: ..
+      args:
+        TARGET_SHA: ${TARGET_SHA:?Set TARGET_SHA}
+    init: true
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:5190:5188"
+    volumes:
+      - /opt/starlink-test/shared/data:/data
+    read_only: true
+    tmpfs:
+      - /tmp:size=32m,mode=1777
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    stop_grace_period: 30s
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: "3"

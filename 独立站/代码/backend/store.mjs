@@ -1,5 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import {hostname} from 'node:os';
+const activeLocks=new Set();
 import {randomUUID,randomBytes,scryptSync,timingSafeEqual} from 'node:crypto';
 import {brands,vehicles} from '../src/data.js';
 export const fail=(status,message)=>{throw Object.assign(new Error(message),{status});};
@@ -9,8 +11,9 @@ export function checkPassword(password,record){if(typeof password!=='string'||pa
 export function openStore(dir){
  fs.mkdirSync(dir,{recursive:true,mode:0o700});fs.mkdirSync(path.join(dir,'uploads'),{recursive:true});
  const lock=path.join(dir,'server.lock');
- if(fs.existsSync(lock)){const pid=Number(fs.readFileSync(lock,'utf8'));let alive=true;try{process.kill(pid,0);}catch(e){if(e.code==='ESRCH')alive=false;}if(alive)throw new Error('数据目录已被另一个进程使用');fs.unlinkSync(lock);}
- fs.writeFileSync(lock,String(process.pid),{flag:'wx',mode:0o600});
+ if(activeLocks.has(lock))throw new Error('数据目录已被另一个进程使用');
+ if(fs.existsSync(lock)){const record=JSON.parse(fs.readFileSync(lock,'utf8')),pid=typeof record==='number'?record:record.pid;let alive=(!record.host||record.host===hostname())&&pid!==process.pid;if(alive)try{process.kill(pid,0);}catch(e){if(e.code==='ESRCH')alive=false;}if(alive)throw new Error('数据目录已被另一个进程使用');fs.unlinkSync(lock);}
+ fs.writeFileSync(lock,JSON.stringify({pid:process.pid,host:hostname()}),{flag:'wx',mode:0o600});activeLocks.add(lock);
  const file=path.join(dir,'catalog.json');
  try{
  if(!fs.existsSync(file))atomic(file,{schema:1,vehicles:vehicles.map(v=>({...v,status:'published',descriptionZh:'演示车型，非真实库存。',descriptionEn:'Illustrative vehicle, not live inventory.',version:1,updatedAt:new Date().toISOString()}))});
@@ -25,9 +28,10 @@ export function openStore(dir){
   const images=input.images;if(!Array.isArray(images)||images.length>20||images.some(x=>typeof x!=='string'))fail(400,'每辆车最多20张图片');
   for(const image of images){if(assetNames.has(image))continue;if(!/^\/uploads\/[a-f0-9-]{36}\.(jpg|png|webp)$/.test(image)||!fs.existsSync(path.join(dir,image)))fail(400,'图片不存在或来源无效');}
   const date=text('date',7);if(date&&!/^(19|20)\d{2}-(0[1-9]|1[0-2])$/.test(date))fail(400,'车辆年月无效');
-  if(status==='published'&&(!images.length||!date||!text('descriptionZh',10000)))fail(400,'上架前请填写车辆年月、中文描述并上传至少一张图片');
-  const id=old?.id||randomUUID();return {id,code:old?.code||'SL-'+id.slice(0,8).toUpperCase(),brand:select('brand',brands.map(b=>b.id)),zh:text('zh',120,true),en:text('en',120)||text('zh',120,true),ka:text('ka',120),ru:text('ru',120),date,mileage:number('mileage',5000000),price:number('price',10000000),energy:select('energy',['ev','phev','hybrid','gas']),body:select('body',['sedan','suv','mpv','hatchback','pickup']),seats:number('seats',60),transmission:select('transmission',['auto','manual']),descriptionZh:text('descriptionZh',10000),descriptionEn:text('descriptionEn',10000),descriptionKa:text('descriptionKa',10000),descriptionRu:text('descriptionRu',10000),images:[...new Set(images)],image:images[0]||'',featured:input.featured===true,demo:input.demo===true,status,version:(old?.version||0)+1,createdAt:old?.createdAt||new Date().toISOString(),updatedAt:new Date().toISOString()};
+  if(!['zh','en','ka','ru'].some(k=>text(k,120)))fail(400,'请填写至少一种语言的车型名称');
+  if(status==='published'&&(!images.length||!date||!['descriptionZh','descriptionEn','descriptionKa','descriptionRu'].some(k=>text(k,10000))))fail(400,'上架前请填写车辆年月、至少一种语言的描述并上传至少一张图片');
+  const id=old?.id||randomUUID();return {id,code:old?.code||'SL-'+id.slice(0,8).toUpperCase(),brand:select('brand',brands.map(b=>b.id)),zh:text('zh',120),en:text('en',120),ka:text('ka',120),ru:text('ru',120),date,mileage:number('mileage',5000000),price:number('price',10000000),energy:select('energy',['ev','phev','hybrid','gas']),body:select('body',['sedan','suv','mpv','hatchback','pickup']),seats:number('seats',60),transmission:select('transmission',['auto','manual']),descriptionZh:text('descriptionZh',10000),descriptionEn:text('descriptionEn',10000),descriptionKa:text('descriptionKa',10000),descriptionRu:text('descriptionRu',10000),images:[...new Set(images)],image:images[0]||'',featured:input.featured===true,demo:input.demo===true,status,version:(old?.version||0)+1,createdAt:old?.createdAt||new Date().toISOString(),updatedAt:new Date().toISOString()};
  }
- return {dir,list:()=>structuredClone(db.vehicles),save(input,id){if(!input||typeof input!=='object'||Array.isArray(input))fail(400,'车辆数据格式无效');const old=id?db.vehicles.find(v=>v.id===id):null;if(id&&!old)fail(404,'车辆不存在');if(old&&input.version!==old.version)fail(409,'车辆已被其他窗口修改，请重新加载后编辑');const car=validate(input,old);const next={...db,vehicles:old?db.vehicles.map(v=>v.id===id?car:v):[car,...db.vehicles]};atomic(file,next);db=next;return car;},close(){fs.unlinkSync(lock);}};
- }catch(e){fs.unlinkSync(lock);throw e;}
+ return {dir,list:()=>structuredClone(db.vehicles),save(input,id){if(!input||typeof input!=='object'||Array.isArray(input))fail(400,'车辆数据格式无效');const old=id?db.vehicles.find(v=>v.id===id):null;if(id&&!old)fail(404,'车辆不存在');if(old&&input.version!==old.version)fail(409,'车辆已被其他窗口修改，请重新加载后编辑');const car=validate(input,old);const next={...db,vehicles:old?db.vehicles.map(v=>v.id===id?car:v):[car,...db.vehicles]};atomic(file,next);db=next;return car;},close(){fs.unlinkSync(lock);activeLocks.delete(lock);}};
+ }catch(e){fs.unlinkSync(lock);activeLocks.delete(lock);throw e;}
 }
