@@ -2,3 +2,9 @@
 node_modules/
 .test-artifacts/
 *.log
+
+# Local credentials and company source documents
+.env
+.env.*
+!.env.example
+/独立站/公司资料/*.pdf

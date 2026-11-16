@@ -1,0 +1,165 @@
+- banner:
+  - link "MYUCAR":
+    - /url: /zh
+    - generic: MYUCAR
+  - navigation "主导航":
+    - link "首页":
+      - /url: /zh
+    - link "车源":
+      - /url: /zh/vehicles
+    - link "车商与代理":
+      - /url: /zh/agents
+    - link "关于我们":
+      - /url: /zh/about
+    - link "下载 App":
+      - /url: /zh/download
+  - 'link "我的收藏: 已收藏 0 辆"':
+    - /url: /zh/favorites
+  - button "语言":
+    - generic: 中文
+  - button "市场":
+    - generic: 🌍 全球
+  - button "币种":
+    - generic: 美元
+  - link "商务合作":
+    - /url: /zh/contact
+    - generic: 商务合作
+- main:
+  - link "返回列表":
+    - /url: /zh/vehicles?brand=%E5%AE%9D%E9%A9%AC
+    - text: 返回列表
+  - button "查看大图":
+    - img "宝马 宝马X5 CN-NA-261116-C2903E"
+  - button "上一张":
+  - button "下一张":
+  - generic: 1 / 6
+  - button "查看全部 6 张照片":
+    - text: 查看全部 6 张照片
+  - heading "2026 宝马 宝马X5" [level=1]
+  - paragraph: 宝马 宝马X5 2026款 改款 xDrive 30Li 尊享型M运动曜夜套装
+  - button "收藏 宝马 宝马X5":
+  - text: 已核验
+  - text: 可出口
+  - text: 低里程
+  - generic: $77,787
+  - generic: 美元
+  - generic: 运费 $2,150（总价已包含）
+  - button "联系当地代理":
+    - generic: 联系当地代理
+  - button "复制编号":
+    - text: 复制编号
+  - button "分享":
+    - text: 分享
+  - paragraph: 联系将打开电话或邮箱应用。我们不会保存您的联系方式。
+  - heading "车辆参数" [level=2]
+  - generic: 制造时间
+  - generic: 2026年3月
+  - generic: 里程
+  - generic: 6,877 公里
+  - generic: 能源类型
+  - generic: 汽油
+  - generic: 最大马力
+  - generic: 258 匹
+  - generic: 排量
+  - generic: 1.998 L
+  - generic: 座位数
+  - generic: 5 座
+  - generic: 变速箱
+  - generic: 自动
+  - generic: 驱动形式
+  - generic: 四驱
+  - generic: 颜色
+  - generic: 黑色
+  - heading "车况描述" [level=2]
+  - paragraph: 原版原漆
+  - heading "主要配置" [level=2]
+  - text: 定速巡航
+  - text: 倒车影像
+  - text: 多功能方向盘
+  - text: 天窗
+  - text: 导航
+  - text: LED 大灯
+  - text: 真皮座椅
+  - text: 无钥匙进入
+  - heading "资料状态" [level=2]
+  - paragraph: 未提供的项目会明确标注，缺失资料可向代理咨询。
+  - generic: 图片
+  - text: 已提供
+  - generic: 行驶证
+  - text: 已提供
+  - generic: 登记证书
+  - text: 未提供
+  - generic: 铭牌
+  - text: 已提供
+  - generic: 钥匙数量
+  - text: 2 把钥匙
+  - generic: 维保记录
+  - text: 未提供
+  - generic: 检测报告
+  - text: 未提供
+  - generic: 出险记录
+  - text: 未提供
+  - generic: 关于预估陆运费
+  - paragraph: 预估陆运费为跨境陆路运输参考值，当前展示总价已包含该运费；不包含目的国关税、清关费、认证费、上牌费及当地交付费用。最终价格以与代理及客服团队签订的合同为准。
+  - heading "您的联系人" [level=2]
+  - paragraph: 可联系平台团队或您的当地代理。
+  - button "联系当地代理":
+    - generic: 联系当地代理
+  - heading "车辆图集" [level=2]
+  - heading "外观 5" [level=3]:
+    - text: 外观
+    - generic: "5"
+  - button "查看大图":
+    - img "宝马 宝马X5 CN-NA-261116-C2903E"
+  - button "查看大图":
+    - img "宝马 宝马X5 CN-NA-261116-C2903E"
+  - button "查看大图":
+    - img "宝马 宝马X5 CN-NA-261116-C2903E"
+  - button "查看大图":
+    - img "宝马 宝马X5 CN-NA-261116-C2903E"
+  - button "查看大图":
+    - img "宝马 宝马X5 CN-NA-261116-C2903E"
+  - heading "中控 1" [level=3]:
+    - text: 中控
+    - generic: "1"
+  - button "查看大图":
+    - img "宝马 宝马X5 CN-NA-261116-C2903E"
+- contentinfo:
+  - text: MYUCAR
+  - paragraph: 值得信赖的合作伙伴，助您从中国采购并出口优质二手车。
+  - heading "浏览" [level=4]
+  - link "首页":
+    - /url: /zh
+  - link "车源":
+    - /url: /zh/vehicles
+  - link "车商与代理":
+    - /url: /zh/agents
+  - link "下载 App":
+    - /url: /zh/download
+  - heading "公司" [level=4]
+  - link "关于我们":
+    - /url: /zh/about
+  - link "商务合作":
+    - /url: /zh/contact
+  - link "物流查询":
+    - /url: /zh/logistics
+  - heading "法律与说明" [level=4]
+  - link "隐私政策":
+    - /url: /zh/privacy
+  - link "使用条款":
+    - /url: /zh/terms
+  - link "价格与出口说明":
+    - /url: /zh/price-export-notice
+  - link "新ICP备2025023781号-2":
+    - /url: https://beian.miit.gov.cn/
+  - generic: "|"
+  - link "兵公网安备66080002000201号":
+    - /url: https://beian.mps.gov.cn/#/query/webSearch?code=66080002000201
+    - text: 兵公网安备66080002000201号
+  - generic: "|"
+  - generic: 新疆途骏汽车销售服务有限公司
+  - generic: "|"
+  - generic: Xinjiang Tujun Automobile Sales and Service Co., Ltd
+  - generic: © 2026 MYUCAR. 保留所有权利。
+  - button "系统信息"
+- alert: 2026 宝马 宝马X5 — MYUCAR
