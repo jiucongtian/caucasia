@@ -1,5 +1,14 @@
 // All vehicle records below are illustrative fixtures, not Starlink inventory or offers.
 export const brands = [
+ {id:'deepal',zh:'深蓝',en:'DEEPAL',ka:'DEEPAL',ru:'DEEPAL',mark:'DEEPAL',type:'core'},
+ {id:'geely',zh:'吉利',en:'GEELY',ka:'GEELY',ru:'GEELY',mark:'GEELY',type:'core'},
+ {id:'hongqi',zh:'红旗',en:'HONGQI',ka:'HONGQI',ru:'HONGQI',mark:'HONGQI',type:'order'},
+ {id:'li-auto',zh:'理想',en:'Li Auto',ka:'Li Auto',ru:'Li Auto',mark:'LI AUTO',type:'order'},
+ {id:'kaicene',zh:'长安凯程',en:'Changan Kaicene',ka:'Changan Kaicene',ru:'Changan Kaicene',mark:'KAICENE',type:'order'},
+ {id:'maxus',zh:'上汽大通',en:'MAXUS',ka:'MAXUS',ru:'MAXUS',mark:'MAXUS',type:'order'},
+ {id:'lonking',zh:'龙工',en:'LONKING',ka:'LONKING',ru:'LONKING',mark:'LONKING',type:'order'},
+ {id:'up',zh:'UP',en:'UP',ka:'UP',ru:'UP',mark:'UP',type:'order'},
+ {id:'neta',zh:'哪吒',en:'NETA',ka:'NETA',ru:'NETA',mark:'NETA',type:'order'},
  {id:'byd',zh:'比亚迪',en:'BYD',ka:'BYD',ru:'BYD',mark:'BYD',type:'core'},
  {id:'changan',zh:'长安启源',en:'Changan NEVO',ka:'Changan NEVO',ru:'Changan NEVO',mark:'CHANGAN',type:'core'},
  {id:'voyah',zh:'岚图',en:'VOYAH',ka:'VOYAH',ru:'VOYAH',mark:'VOYAH',type:'order'},
